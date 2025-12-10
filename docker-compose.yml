@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  fretboardgtr:
+    image: ghcr.io/antscloud/fretboardgtr:latest
+    container_name: fretboardgtr
+    volumes:
+      - ./output:/app/output
+      - ./scripts:/app/scripts
+    working_dir: /app
+    command: tail -f /dev/null
+    restart: unless-stopped
+
+networks:
+  default:
+    name: fretboardgtr-network
